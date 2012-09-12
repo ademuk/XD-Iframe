@@ -6,10 +6,10 @@ Installation
 	<!DOCTYPE html>
 	<html>
 	<head>
-	  <meta charset="utf-8" />
+		<meta charset="utf-8" />
 	</head>
 	<body>
-	  <script src="xd_receiver.js"></script>
+		<script src="xd_receiver.js"></script>
 	</body>
 	</html>
 
@@ -19,7 +19,7 @@ Installation
 	<script src="bcc.js"></script>
 	<script>
 	BCC.init({
-	  xdReciever: '//parent-domain.local/xd_receiver.html'
+		xdReciever: '//parent-domain.local/xd_receiver.html'
 	});
 	BCC.setIframeSize();
 	</script>
