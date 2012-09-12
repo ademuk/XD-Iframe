@@ -1,7 +1,9 @@
 Installation
 ============
 
-1. Upload xd_receiver.js, and the following file to the same server as that of the parent page (Black Baud). call it xd_receiver.html:
+Step 1
+------
+Upload xd_receiver.js, and the following file to the same server as that of the parent page (Black Baud). call it xd_receiver.html:
 
 	<!DOCTYPE html>
 	<html>
@@ -13,7 +15,9 @@ Installation
 	</body>
 	</html>
 
-2. Upload bcc.js and add the following to every BCC page you wish to auto resize, just above </body>. Set the xdReceiver param to the url of the file created in step one. Feel free to move bcc.js to a more suitable directory.
+Step 2
+------
+Upload bcc.js and add the following to every BCC page you wish to auto resize, just above </body>. Set the xdReceiver param to the url of the file created in step one. Feel free to move bcc.js to a more suitable directory.
 
 	<div id="bccRoot"></div>
 	<script src="bcc.js"></script>
