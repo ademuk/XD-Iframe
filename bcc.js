@@ -8,11 +8,12 @@ BCC = {
     this.settings = options;
     this.frame = d.createElement('iframe');
     this.frame.id = id;
+    this.frame.style.display = 'none';
     this.frame.src = this.settings.xdReciever;
     this.frame.onload = function() {
       self.xdFrameLoaded = true;
     }
-    d.getElementById('bccRoot').parentNode.insertBefore(this.frame);
+    d.getElementById('bccRoot').parentNode.insertBefore(this.frame, null);
   },
 
   execute: function(func, args) {
@@ -27,6 +28,20 @@ BCC = {
     var h = h || this.getDocumentHeight() + this.documentPadding,
         w = w || this.getDocumentWidth() + this.documentPadding;
     this.execute('setIframeSize', [w, h]);
+  },
+
+  setAutoIframeSize: function(w, h) {
+    var self = this;
+    this.autoSizeInterval = setInterval(function() {
+      var h = h || self.getDocumentHeight(),
+          w = w || self.getDocumentWidth();
+          //TODO(adem) add width check once option is implemented
+          if(self.iframeHeight != h) {
+            self.iframeHeight = h;
+            self.iframeWidth = w;
+            self.execute('setIframeSize', [w, h]);
+          }
+    }, 500);
   },
 
   getDocumentHeight: function() {
