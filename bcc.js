@@ -6,10 +6,14 @@ BCC = {
   init: function(options) {
     var self = this;
     this.settings = options;
+    this.$ = (typeof jQuery != 'undefined') ? jQuery : false;
     this.frame = d.createElement('iframe');
     this.frame.id = id;
     this.frame.style.display = 'none';
     this.frame.src = this.settings.xdReciever;
+    if(typeof(console) != 'undefined') {
+      console.log(this.settings.xdReciever);
+    }
     this.frame.onload = function() {
       self.xdFrameLoaded = true;
     }
@@ -45,10 +49,13 @@ BCC = {
   },
 
   getDocumentHeight: function() {
+    if(this.$) {
+      return this.$('body').height();
+    }
+      
     return Math.max(
-        Math.max(d.body.scrollHeight, d.documentElement.scrollHeight),
-        Math.max(d.body.offsetHeight, d.documentElement.offsetHeight),
-        Math.max(d.body.clientHeight, d.documentElement.clientHeight)
+      d.body.clientHeight,
+      Math.max(d.body.offsetHeight, d.documentElement.offsetHeight)
     );
   },
 
